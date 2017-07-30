@@ -2,7 +2,23 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean id="personService" class="com.thoughworks.example.service.PersonService">
 
+    <bean id="personService" class="com.thoughworks.example.service.PersonService">
+        <!--<property name="provider" ref="jdbcProvider"></property>-->
+        <property name="provider" ref="ladpProvider"></property>
     </bean>
+
+    <bean id="jdbcProvider" class="com.thoughworks.example.provider.JDBCProvider">
+        <property name="person" ref="person"></property>
+    </bean>
+
+    <bean id="ladpProvider" class="com.thoughworks.example.provider.LDAPProvider">
+        <property name="person" ref="person"></property>
+    </bean>
+
+    <bean id="person" class="com.thoughworks.example.model.Person">
+        <constructor-arg index="0" value="101"/>
+        <constructor-arg index="1" value="TW Shuangqi"/>
+    </bean>
+
 </beans>

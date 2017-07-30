@@ -1,19 +1,18 @@
-package com.thoughworks.example;
+package com.thoughworks.example.application;
 
 import com.thoughworks.example.service.PersonService;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Application {
 
     public static void main(String[] args) {
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("application.xml");
+
+        ApplicationContext context = new ClassPathXmlApplicationContext("application.xml");
 
         PersonService personService = context.getBean(PersonService.class);
 
-        System.out.println(personService.getPersonName(1));
+        System.out.println(personService.getPersonName(101));
 
     }
-
-
-
 }
