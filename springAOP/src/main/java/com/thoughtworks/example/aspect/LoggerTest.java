@@ -25,6 +25,6 @@ public class LoggerTest {
         bookService.borrowBook("Spring In Action");
         bookService.borrowBook("Test Driven Development");
 
-        assertEquals( "1",logger.getBookcount("\"Spring In Action\"").toString());
+        assertEquals( "1",logger.getBookcount("Spring In Action").toString());
     }
 }
